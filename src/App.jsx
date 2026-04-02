@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function App() {
     // state라고 하는 특수변수를 만들때 useState()
     // const[앞으로 사용할 변수명, 그 변수의 값을 변경할 수 있는 변수명] = useState(초기값)
