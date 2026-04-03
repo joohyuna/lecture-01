@@ -45,8 +45,7 @@ function App() {
             form 태그 내부의 input에서 엔터를 치거나, button (정확히는 button의 type이 "submit"인 button)을 누르면,
             form의 onSubmit  속성을 실행해줌
             */}
-            <form
-                onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
                 {/*
                 input에 입력이 일어날 때마다 실행하는 속성 : onChange
                     입력이 일어난 "사건(이벤트)"이고,
@@ -76,8 +75,15 @@ function App() {
                             .map 안에서 유일함 값
                 */}
                 {list.map((value, index) => {
+                    // map 내장 합수 그래서 import 하지 않았다
                     return <li key={index}>{value}</li>;
                 })}
+                {/*
+                     <li key={index}>"abc"</li>,
+                     <li key={index}>"def"</li>,
+                     <li key={index}>"ghi"</li>
+                     이 내용이 map에 들어간것이다. 배열이 원래 들어가야 함
+                 */}
             </ul>
         </div>
     );
