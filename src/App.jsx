@@ -16,7 +16,7 @@ function App() {
         // event.target.value 하는 값이 input에 입력된 값이 들어 있드라
         // 덮어쓰기
         setTodo(event.target.value);
-    }
+    };
     const onSubmit = event => {
         // chrome 값은 웹브라우저는 기본적으로, onSubmit이 내정되어 있는 기능이 미미 존재함
         // 무슨 기능이냐면, input의 내용물을 전송하고 새로고침하는 기능
@@ -36,8 +36,16 @@ function App() {
         // 2. todo의 값을 삭제하고
         setTodo("");
         // 3. input에 입력된 값도 삭제해야함 -> input이라고 하는 태그의 value 속성을 비워줘야 되는 일
-    }
-
+    };
+    const deleteTodo = (index) => {
+        // 우리가 삭제해야 되는 것은 index로 접근할 수 있음. 훨씬 위에 있는 list에서
+        // 우리가 삭제하려는, bottuon 걸린  인텍스 : index, filter를
+        setList(
+            list.filter((v, i) => {
+                return i !== index;
+            }),
+        );
+    };
     return (
         <div>
             <h1>My ToDo ({list.length})</h1>
@@ -76,7 +84,15 @@ function App() {
                 */}
                 {list.map((value, index) => {
                     // map 내장 합수 그래서 import 하지 않았다
-                    return <li key={index}>{value}</li>;
+                    return (
+                        <li key={index}>
+                            {value}{" "}
+                            <button
+                                onClick={() => deleteTodo(index)}>
+                                ❌
+                            </button>
+                        </li>
+                    );
                 })}
                 {/*
                      <li key={index}>"abc"</li>,
